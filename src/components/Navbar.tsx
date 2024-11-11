@@ -18,7 +18,7 @@ const Navbar = () => {
           className="cursor-pointer flex flex-row gap-2 justify-center items-center"
         >
           <img src="/community.svg" width="40px" height="40px" alt="Logo" />
-          <span className="text-4xl">Kalanirmata</span>
+          <span className="text-4xl">Kutumbak</span>
         </Link>
         <ul className="flex space-x-6">
           {["Home", "About Us", "Events", "Contact"].map((item, index) => (
