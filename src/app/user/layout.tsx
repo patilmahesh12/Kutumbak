@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import ToastContainer from "@/components/ToastContainer";
 import SideNav from "@/components/SideNav";
-import { SIDENAV_ITEMS } from "./constants";
 import { UserProvider, useUser } from "@/context/UserContext";
 import { useEffect } from "react";
 import axios from "axios";
