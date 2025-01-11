@@ -37,7 +37,7 @@ const ThemeToggler = () => {
     { label: "Coffee", value: "coffee" },
     { label: "Winter", value: "winter" },
   ];
-  const [selectedTheme, setSelectedTheme] = useState<string>("dark");
+  const [selectedTheme, setSelectedTheme] = useState<string>("autumn");
   const pathname = usePathname();
 
   useEffect(() => {

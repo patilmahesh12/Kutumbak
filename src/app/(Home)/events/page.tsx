@@ -6,32 +6,75 @@ import React, { useState } from "react";
 type Event = {
   id: string;
   title: string;
+  Name: String;
   date: string;
   description: string;
-  location: string;
+  location: string; // add oraginased by
 };
 
 const eventsData: Event[] = [
   {
     id: "1",
-    title: "Community Gathering",
-    date: "2024-11-20",
-    description: "A chance for community members to meet and network.",
-    location: "Community Hall, Main Street",
+    title: "Maratha Mahasangh",
+    Name: "Maratha Community",
+    date: "2024-01-20",
+    description:
+      "The event addresses issues of reservation, empowerment, and economic upliftment for the Maratha community. It features gatherings of community leaders, activists, and political figures.",
+    location: "Mumbai",
   },
   {
     id: "2",
-    title: "Family Fun Day",
-    date: "2024-12-05",
-    description: "An event for families with fun activities, games, and food!",
-    location: "City Park",
+    title: "Kunbi Mela",
+    Name: "Kunbi Community",
+    date: "2024-04-05",
+    description:
+      "This cultural gathering celebrates the Kunbi way of life with folk dances, traditional music, and agricultural exhibitions highlighting Kunbi farmers' contributions to Maharashtra's economy.",
+    location: "Solapur,Nagpur",
   },
   {
     id: "3",
-    title: "Charity Run",
+    title: "Dhangar Samaj Gaurav Din",
+    Name: "Dhangar Community",
+    date: "2025-08-15",
+    description:
+      "This event celebrates the Dhangar community's contributions to agriculture, animal husbandry, and history, featuring speeches, performances, and social gatherings.",
+    location: "Pune, Nashik",
+  },
+  {
+    id: "4",
+    title: "Koli Fishing Festival",
+    Name: "Koli Community",
+    date: "2025-01-14",
+    description:
+      "The Koli Fishing Festival honors the fishing heritage of the Koli community with boat races, fishing competitions, and cultural performances, promoting sustainable practices in the industry.",
+    location: "Daman, Alibaug",
+  },
+  {
+    id: "5",
+    title: "Kavi Sammelan",
+    Name: "Chitpavan Brahmin Community",
     date: "2025-01-15",
-    description: "A 5K charity run to support local schools.",
-    location: "Riverbank Trail",
+    description:
+      "This event unites Chitpavan Brahmins from across Maharashtra to discuss social, cultural, and educational issues through lectures, seminars, and intellectual discussions on community welfare.",
+    location: "Pune, Mumbai",
+  },
+  {
+    id: "6",
+    title: "Agri Cultural Meet",
+    Name: "Agri community",
+    date: "2025-06-10",
+    description:
+      "The Agri Cultural Meet gathers the Agri community to discuss education, employment, and rural development, featuring cultural performances, art exhibitions, and youth networking opportunities.",
+    location: " Pune, Raigad.",
+  },
+  {
+    id: "7",
+    title: "Mali Wedding Traditions",
+    Name: "Mali community",
+    date: "2025-09-30",
+    description:
+      "The Mali Wedding is a traditional ceremony featuring floral decorations and rituals, reflecting the community's heritage and connection to nature and horticulture. The celebrations highlight flower-based offerings and cultural traditions.",
+    location: "Nashik, Satara.",
   },
 ];
 
@@ -51,11 +94,11 @@ const Events = () => {
           >
             <div className="card-body">
               <h3 className="font-semibold text-2xl">{event.title}</h3>
-              <p className="text-lg">
+              {/* <p className="text-lg">
                 Date: {new Date(event.date).toLocaleDateString()}
-              </p>
+              </p> */}
               <p className="text-sm mt-2">{event.description}</p>
-              <p className="text-sm">Location: {event.location}</p>
+              {/* <p className="text-sm">Location: {event.location}</p> */}
             </div>
           </div>
         ))}

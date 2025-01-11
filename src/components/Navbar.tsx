@@ -3,10 +3,12 @@ import ThemeToggler from "./ThemeToggler";
 import SignInModal from "@/dialogs/SignIn";
 import SignUp from "@/dialogs/SignUp";
 import { useUser } from "@/context/UserContext";
+import axios from "axios";
 
 const Navbar = () => {
   const { family } = useUser();
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await axios.get("/api/user/logout");
     localStorage.removeItem("isAuthenticated");
     window.location.href = "/";
   };
@@ -21,7 +23,7 @@ const Navbar = () => {
           <span className="text-4xl">Kutumbak</span>
         </Link>
         <ul className="flex space-x-6">
-          {["Home", "About Us", "Events", "Contact"].map((item, index) => (
+          {["About Us", "Events", "Contact"].map((item, index) => (       // removed Home
             <li key={index} className="group">
               <Link href={`/${item.toLowerCase().replace(" ", "")}`}>
                 <span className="font-medium text-lg hover:text-primary-content transition-colors duration-200">
@@ -69,7 +71,7 @@ const Navbar = () => {
             </button>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-2"
+              className="menu menu-sm dropdown-content bg-base-100 text-base-content rounded-box z-[1] mt-3 w-52 p-2 shadow gap-2"
             >
               <li>
                 <Link

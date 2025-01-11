@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Family } from "@/types/family";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,6 +50,7 @@ const MainContent = ({ children }: { children: React.ReactNode }) => {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Kutumbak | Connect With Your Community</title>
+        <link rel="icon" href="/community.svg" type="image/svg+xml" />
       </head>
       <body className={`${inter.className}`}>
         <Navbar />

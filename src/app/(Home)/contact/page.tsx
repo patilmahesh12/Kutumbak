@@ -2,6 +2,14 @@
 
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import {
+  Mail,
+  PhoneIncoming,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +20,6 @@ const Contact = () => {
 
   const [error, setError] = useState<string | null>(null);
 
-  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -22,16 +29,15 @@ const Contact = () => {
     }
 
     try {
-      // Simulate a successful form submission (you can replace this with your API call)
       toast.success("Your message has been sent successfully.");
-      setFormData({ name: "", email: "", message: "" }); // Clear form after submission
+      setFormData({ name: "", email: "", message: "" });
     } catch (err) {
       setError("Something went wrong. Please try again.");
     }
   };
 
   return (
-    <div className="max-w-5xl mx-auto  mt-10  p-10 bg-base-200 rounded-lg shadow-lg">
+    <div className="max-w-5xl mx-auto mt-10 p-10 bg-base-200 rounded-lg shadow-lg">
       <h1 className="text-4xl font-bold text-center mb-6">Contact Us</h1>
 
       {error && (
@@ -41,7 +47,7 @@ const Contact = () => {
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        {/* Contact Form */}
+        {/* Form Section */}
         <div className="p-10 bg-base-300 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-4">Send us a message</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -103,31 +109,51 @@ const Contact = () => {
           </form>
         </div>
 
-        {/* Contact Info */}
+        {/* Contact Information */}
         <div className="p-10 bg-base-300 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-          <p className="text-lg">
-            If you have any questions or inquiries, feel free to reach out to us
-            using the form on the left.
-          </p>
-          <div className="mt-4">
-            <p className="text-lg font-medium">Email: johnpawar453@gmail.com</p>
-            <p className="text-lg font-medium">Phone: +91 74994 55643</p>
+          <h2 className="text-2xl font-semibold mb-4">
+            Let's talk about the Future
+          </h2>
+
+          {/* Email */}
+          <div className="flex items-center gap-2">
+            <Mail size={18} />
+            <p className="text-lg font-medium">Email: Kutumbak@gmail.com</p>
           </div>
+
+          {/* Phone */}
+          <div className="flex items-center gap-2 mt-2">
+            <PhoneIncoming size={18} />
+            <p className="text-lg font-medium">Phone: +91 98989 xxxxx</p>
+          </div>
+
+          {/* Social Media */}
           <div className="mt-6">
-            <h3 className="text-xl font-semibold">Follow us on social media</h3>
+            <h3 className="text-xl font-semibold">We are on</h3>
             <div className="flex gap-4 mt-4">
-              <a href="#" className="text-blue-500 hover:text-blue-700">
-                Facebook
+              <a
+                href="#"
+                className="text-blue-500 hover:text-blue-700 flex items-center gap-1"
+              >
+                <Facebook size={18} />
               </a>
-              <a href="#" className="text-blue-400 hover:text-blue-600">
-                Twitter
+              <a
+                href="#"
+                className="text-blue-400 hover:text-blue-600 flex items-center gap-1"
+              >
+                <Twitter size={18} />
               </a>
-              <a href="#" className="text-pink-500 hover:text-pink-700">
-                Instagram
+              <a
+                href="#"
+                className="text-pink-500 hover:text-pink-700 flex items-center gap-1"
+              >
+                <Instagram size={18} />
               </a>
-              <a href="#" className="text-gray-800 hover:text-gray-900">
-                LinkedIn
+              <a
+                href="#"
+                className="text-gray-800 hover:text-gray-900 flex items-center gap-1"
+              >
+                <Linkedin size={18} />
               </a>
             </div>
           </div>

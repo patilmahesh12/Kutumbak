@@ -10,9 +10,10 @@ export async function POST(req: NextRequest) {
   const { user } = await req.json();
   const familyExist = await Family.findOne({ email: user.email });
   if (familyExist) {
+    console.log(familyExist);
     return NextResponse.json(
       { error: "Family already exists!" },
-      { status: 400 }
+      { status: 404 }
     );
   }
   const hashedPassword = bcrypt.hashSync(user.password, 10);

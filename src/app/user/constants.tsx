@@ -33,7 +33,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   },
   {
     title: "Help",
-    path: "/user/help",
+    path: "", //  Path Romoved "/user/help"
     icon: <HelpCircle width="24" height="24" />,
   },
 ];
