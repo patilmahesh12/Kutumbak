@@ -1,17 +1,38 @@
 "use client";
+
+import { useState, useEffect } from "react";
 import { useUser } from "@/context/UserContext";
 import { User } from "@/types/User";
 import Link from "next/link";
-import { useEffect } from "react";
 
 const UserDashboard = () => {
   const { family } = useUser();
+  const [showDeleteWarning, setShowDeleteWarning] = useState(false);
+  const [memberToDelete, setMemberToDelete] = useState<User | null>(null);
 
   useEffect(() => {
     if (!family) {
       console.warn("No family data found.");
     }
   }, [family]);
+
+  const handleDelete = (member: User) => {
+    setMemberToDelete(member);
+    setShowDeleteWarning(true);
+  };
+
+  const confirmDelete = () => {
+    // Add the actual delete logic here, like calling an API or updating state
+    if (memberToDelete) {
+      console.log(`Deleting member: ${memberToDelete.fullName}`);
+      // Implement actual deletion logic here (API call, state update, etc.)
+    }
+    setShowDeleteWarning(false); // Close the modal after deletion
+  };
+
+  const cancelDelete = () => {
+    setShowDeleteWarning(false); // Close the modal without deleting
+  };
 
   return (
     <main className="p-6">
@@ -42,6 +63,7 @@ const UserDashboard = () => {
           </p>
         </div>
       </section>
+
       {/* Manage Family Members Section */}
       <section>
         <h2 className="text-3xl font-semibold text-base-content">
@@ -59,19 +81,42 @@ const UserDashboard = () => {
                 <p className="text-sm">Gender: {member.gender}</p>
                 <p className="text-sm">Mobile No.: {member.mobileNo}</p>
                 <div className="flex space-x-2 mt-4">
-                  <Link
-                    href={`/user/edit-member/${member._id}`}
-                    className="btn btn-xs btn-secondary"
+                  {/* Removed the Edit button */}
+                  <button
+                    className="btn btn-xs btn-error"
+                    onClick={() => handleDelete(member)}
                   >
-                    Edit
-                  </Link>
-                  <button className="btn btn-xs btn-error">Delete</button>
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </section>
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteWarning && (
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h3 className="text-lg font-semibold">Are you sure you want to delete this member?</h3>
+            <div className="flex justify-end space-x-4 mt-4">
+              <button
+                className="btn btn-secondary"
+                onClick={cancelDelete}
+              >
+                Cancel
+              </button>
+              <button
+                className="btn btn-error"
+                onClick={confirmDelete}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 };
