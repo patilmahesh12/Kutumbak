@@ -1,5 +1,5 @@
 import { ChevronDown, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const ThemeToggler = () => {
@@ -37,7 +37,10 @@ const ThemeToggler = () => {
     { label: "Coffee", value: "coffee" },
     { label: "Winter", value: "winter" },
   ];
-  const [selectedTheme, setSelectedTheme] = useState<string>("autumn");
+
+  const [selectedTheme, setSelectedTheme] = useState<string>("coffee");
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDetailsElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -55,8 +58,29 @@ const ThemeToggler = () => {
     localStorage.setItem("theme", value);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <details className="dropdown dropdown-end">
+    <details
+      ref={dropdownRef}
+      className="dropdown dropdown-end"
+      open={isOpen}
+      onToggle={(e) => setIsOpen(e.currentTarget.open)}
+    >
       <summary tabIndex={0} role="button" className="btn m-1 px-7 py-3">
         <Sun size={16} /> <ChevronDown size={16} />
       </summary>
