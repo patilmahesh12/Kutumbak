@@ -67,8 +67,16 @@ const RegisterUserDialog = () => {
   };
 
   return (
-    <dialog id="signup" className="modal ">
-      <div className="modal-box w-6/12 max-w-5xl text-base-content">
+    <dialog id="signup" className="modal">
+      <div className="modal-box w-6/12 max-w-5xl text-base-content relative">
+        {/* Cross Button at the Top-Right */}
+        <button
+          className="absolute top-2 right-2 text-lg font-bold text-gray-500 hover:text-gray-700"
+          onClick={handleClose}
+        >
+          ×
+        </button>
+
         <h3 className="font-bold text-2xl my-4 text-center text-base-content">
           Register New User and Family
         </h3>
@@ -243,9 +251,7 @@ const RegisterUserDialog = () => {
             <button
               type="button"
               className="btn"
-              onClick={() => {
-                handleClose;
-              }}
+              onClick={handleClose}
             >
               Close
             </button>
