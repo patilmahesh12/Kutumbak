@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { useUser } from "@/context/UserContext";
 import { User } from "@/types/User";
@@ -77,7 +75,7 @@ const UpdateFamilyMember = () => {
             <div className="card-body flex flex-col items-center">
               <div className="w-24 h-24 mb-4 rounded-full overflow-hidden">
                 <img
-                  src={member.profileImage || "/default-profile.png"}
+                  src={member.profileImage ? member.profileImage : "/default-profile.png"}
                   alt={member.fullName}
                   className="w-full h-full object-cover"
                 />
@@ -97,8 +95,6 @@ const UpdateFamilyMember = () => {
           </div>
         ))}
       </div>
-
-      {/* Update Form */}
       {selectedMember && (
         <div>
           <h3 className="text-2xl font-semibold text-center mb-4">

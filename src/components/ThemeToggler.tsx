@@ -2,7 +2,7 @@ import { ChevronDown, Sun } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
-const ThemeToggler = () => {
+const ThemeToggler = ({ animation = false }: { animation?: boolean }) => {
   const theme = [
     { label: "Default", value: "light" },
     { label: "Dark", value: "dark" },
@@ -81,8 +81,25 @@ const ThemeToggler = () => {
       open={isOpen}
       onToggle={(e) => setIsOpen(e.currentTarget.open)}
     >
-      <summary tabIndex={0} role="button" className="btn m-1 px-7 py-3">
-        <Sun size={16} /> <ChevronDown size={16} />
+      <summary
+        tabIndex={0}
+        role="button"
+        className={`btn m-1 px-7 py-3 flex items-center space-x-2 ${
+          animation ? "transition-transform duration-300" : ""
+        }`}
+      >
+        <div
+          className={`flex items-center justify-center ${
+            animation
+              ? `transition-transform duration-300 ${
+                  isOpen ? "rotate-180" : "rotate-0"
+                }`
+              : ""
+          }`}
+        >
+          <Sun size={16} />
+        </div>
+        <ChevronDown size={16} />
       </summary>
       <ul
         tabIndex={0}

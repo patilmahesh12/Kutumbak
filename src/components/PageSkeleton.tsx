@@ -1,13 +1,16 @@
 "use client";
-import { AlignJustify, ChevronDown, ChevronRight } from "lucide-react";
+import { AlignJustify, ChevronDown } from "lucide-react";
 import React, { useState } from "react";
-import { SideNavItem } from "@/types/types";
 
 const SideNavSkeleton = () => {
   return (
     <>
-      <div className="drawer lg:drawer-open">
-        <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+      <div className="drawer drawer-mobile">
+        <input
+          id="my-drawer-3"
+          type="checkbox"
+          className="drawer-toggle"
+        />
         <div className="drawer-content flex flex-col animate-pulse">
           <div
             className="navbar justify-between w-full pl-10 bg-gray-100 h-16"
@@ -21,7 +24,9 @@ const SideNavSkeleton = () => {
           >
             <div className="flex-none lg:hidden">
               <div className="btn btn-square btn-ghost text-gray-900">
-                <AlignJustify className="h-6 w-6" />
+                <label htmlFor="my-drawer-3">
+                  <AlignJustify className="h-6 w-6" />
+                </label>
               </div>
             </div>
             <div className="flex-1 lg:hidden px-2">
@@ -54,7 +59,6 @@ const SideNavSkeleton = () => {
               <div className="h-6 w-48 bg-gray-300 rounded"></div>
             </div>
             <div className="flex flex-col space-y-4 mt-10 md:px-6">
-              {/* Sidebar items skeleton */}
               {[1, 2, 3, 4].map((item) => (
                 <div
                   key={item}

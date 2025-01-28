@@ -37,7 +37,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto mt-10 p-10 bg-base-200 rounded-lg shadow-lg">
+    <div className="max-w-7xl mx-auto mt-10 p-10 bg-base-200 rounded-lg shadow-lg">
       <h1 className="text-4xl font-bold text-center mb-6">Contact Us</h1>
 
       {error && (
@@ -46,8 +46,7 @@ const Contact = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        {/* Form Section */}
+      <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         <div className="p-10 bg-base-300 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-4">Send us a message</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -59,7 +58,7 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full focus:ring-2 focus:ring-primary p-3 rounded-md shadow-sm"
                 placeholder="Enter your name"
                 value={formData.name}
                 onChange={(e) =>
@@ -76,7 +75,7 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full focus:ring-2 focus:ring-primary p-3 rounded-md shadow-sm"
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={(e) =>
@@ -92,7 +91,7 @@ const Contact = () => {
               <textarea
                 id="message"
                 name="message"
-                className="textarea textarea-bordered w-full"
+                className="textarea textarea-bordered w-full focus:ring-2 focus:ring-primary p-3 rounded-md shadow-sm"
                 placeholder="Write your message"
                 value={formData.message}
                 onChange={(e) =>
@@ -108,50 +107,42 @@ const Contact = () => {
             </div>
           </form>
         </div>
-
-        {/* Contact Information */}
         <div className="p-10 bg-base-300 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-4">
             Let's talk about the Future
           </h2>
-
-          {/* Email */}
-          <div className="flex items-center gap-2">
-            <Mail size={18} />
+          <div className="flex items-center gap-3 sm:gap-4 md:gap-5">
+            <Mail size={22} />
             <p className="text-lg font-medium">Email: Kutumbak@gmail.com</p>
           </div>
-
-          {/* Phone */}
-          <div className="flex items-center gap-2 mt-2">
-            <PhoneIncoming size={18} />
+          <div className="flex items-center gap-3 sm:gap-4 md:gap-5 mt-4">
+            <PhoneIncoming size={22} />
             <p className="text-lg font-medium">Phone: +91 98989 xxxxx</p>
           </div>
-
-          {/* Social Media */}
           <div className="mt-6">
             <h3 className="text-xl font-semibold">We are on</h3>
             <div className="flex gap-4 mt-4">
               <a
                 href="#"
-                className="text-blue-500 hover:text-blue-700 flex items-center gap-1"
+                className="text-blue-500 hover:text-blue-700 flex items-center gap-1 transition-all"
               >
                 <Facebook size={18} />
               </a>
               <a
                 href="#"
-                className="text-blue-400 hover:text-blue-600 flex items-center gap-1"
+                className="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-all"
               >
                 <Twitter size={18} />
               </a>
               <a
                 href="#"
-                className="text-pink-500 hover:text-pink-700 flex items-center gap-1"
+                className="text-pink-500 hover:text-pink-700 flex items-center gap-1 transition-all"
               >
                 <Instagram size={18} />
               </a>
               <a
                 href="#"
-                className="text-gray-800 hover:text-gray-900 flex items-center gap-1"
+                className="text-gray-800 hover:text-gray-900 flex items-center gap-1 transition-all"
               >
                 <Linkedin size={18} />
               </a>

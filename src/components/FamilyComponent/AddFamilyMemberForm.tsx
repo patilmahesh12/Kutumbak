@@ -43,13 +43,10 @@ const AddFamilyMemberForm = () => {
   if (!family) return null;
 
   return (
-    <div className="max-w-3xl mx-auto p-10 bg-base-200 rounded-lg shadow-lg">
-      <h2 className="text-3xl font-semibold text-center mb-6">
-        Add Family Member
-      </h2>
+    <div className="max-w-4xl mx-auto p-6 sm:p-10 bg-base-200 rounded-lg shadow-lg">
+      <h2 className="text-3xl font-semibold text-center mb-6">Add Family Member</h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Full Name */}
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="fullName" className="block text-base font-medium">
             Full Name
@@ -66,8 +63,6 @@ const AddFamilyMemberForm = () => {
             }
           />
         </div>
-
-        {/* Date of Birth */}
         <div>
           <label htmlFor="dob" className="block text-base font-medium">
             Date of Birth
@@ -83,8 +78,6 @@ const AddFamilyMemberForm = () => {
             }
           />
         </div>
-
-        {/* Mobile Number */}
         <div>
           <label htmlFor="mobileNo" className="block text-base font-medium">
             Mobile Number
@@ -103,8 +96,6 @@ const AddFamilyMemberForm = () => {
             }
           />
         </div>
-
-        {/* Aadhar Number */}
         <div>
           <label htmlFor="aadhar" className="block text-base font-medium">
             Aadhar Number
@@ -123,8 +114,6 @@ const AddFamilyMemberForm = () => {
             }
           />
         </div>
-
-        {/* Gender */}
         <div>
           <label htmlFor="gender" className="block text-base font-medium">
             Gender
@@ -143,8 +132,6 @@ const AddFamilyMemberForm = () => {
             <option value="Other">Other</option>
           </select>
         </div>
-
-        {/* Caste */}
         <div>
           <label htmlFor="caste" className="block text-base font-medium">
             Caste
@@ -161,8 +148,6 @@ const AddFamilyMemberForm = () => {
             }
           />
         </div>
-
-        {/* Submit Button */}
         <div>
           <button type="submit" className="btn btn-primary w-full">
             Add Family Member

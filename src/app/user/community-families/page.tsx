@@ -27,10 +27,10 @@ const CommunityFamilies = () => {
 
   useEffect(() => {
     const getCommunityFamily = async () => {
-      const resposne = await axios.post("/api/family", {
+      const response = await axios.post("/api/family", {
         community: family?.community,
       });
-      setCommunityFamilies(resposne.data);
+      setCommunityFamilies(response.data);
     };
     if (family) {
       getCommunityFamily();
@@ -47,8 +47,8 @@ const CommunityFamilies = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-5 p-10 bg-base-200 rounded-lg shadow-lg">
-      <h2 className="text-3xl font-semibold text-center mb-6">
+    <div className="max-w-4xl mx-auto mt-5 p-6 sm:p-10 bg-base-200 rounded-lg shadow-lg">
+      <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-6">
         Community Families
       </h2>
 
@@ -64,12 +64,12 @@ const CommunityFamilies = () => {
       </div>
 
       {/* Display Families in Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         {filteredFamilies.length > 0 ? (
           filteredFamilies.map((family) => (
             <div
               key={family._id}
-              className="card bg-accent text-accent-content shadow-lg cursor-pointer"
+              className="card bg-accent text-accent-content shadow-lg cursor-pointer transform hover:scale-105 transition-all duration-300"
               onClick={() => openFamilyModal(family)}
             >
               <div className="card-body">
@@ -91,7 +91,7 @@ const CommunityFamilies = () => {
 
       {selectedFamily && (
         <div className="fixed inset-0 flex items-center justify-center bg-base-300 bg-opacity-50 z-10">
-          <div className="bg-base-200 p-6 rounded-lg shadow-lg w-3/4 lg:w-2/3">
+          <div className="bg-base-200 p-6 rounded-lg shadow-lg w-11/12 sm:w-3/4 lg:w-2/3">
             <h3 className="text-3xl font-semibold text-center mb-4">
               Family Details
             </h3>
@@ -116,11 +116,11 @@ const CommunityFamilies = () => {
             </div>
 
             <h4 className="text-2xl font-semibold">Members</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
               {selectedFamily.members.map((member: User) => (
                 <div
                   key={member._id}
-                  className="card bg-accent text-accent-content shadow-lg"
+                  className="card bg-accent text-accent-content shadow-lg transform hover:scale-105 transition-all duration-300"
                 >
                   <div className="card-body">
                     <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4">

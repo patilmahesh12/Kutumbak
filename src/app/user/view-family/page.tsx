@@ -80,7 +80,7 @@ const ViewFamily = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-10 bg-base-200 rounded-lg shadow-lg">
+    <div className="max-w-3xl mx-auto p-6 md:p-10 bg-base-200 rounded-lg shadow-lg">
       {/* Header Section with Export Button */}
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-3xl font-semibold">View Family Members</h2>
@@ -90,7 +90,7 @@ const ViewFamily = () => {
       </div>
 
       {/* Displaying Family Members in Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         {family?.members.map((member: User) => (
           <div
             key={member._id}

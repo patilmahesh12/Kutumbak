@@ -68,7 +68,7 @@ const RegisterUserDialog = () => {
 
   return (
     <dialog id="signup" className="modal">
-      <div className="modal-box w-6/12 max-w-5xl text-base-content relative">
+      <div className="modal-box w-11/12 sm:w-8/12 lg:w-6/12 max-w-5xl text-base-content relative">
         <button
           className="absolute top-2 right-2 text-lg font-bold text-gray-500 hover:text-gray-700"
           onClick={handleClose}
@@ -81,151 +81,147 @@ const RegisterUserDialog = () => {
         </h3>
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 px-5"
+          className="space-y-4 px-4 sm:px-6 lg:px-8"
           method="dialog"
         >
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Full Name"
-            value={formData.fullName}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-            required
-          />
-          <input
-            type="text"
-            name="mobileNo"
-            placeholder="Mobile Number"
-            value={formData.mobileNo}
-            maxLength={10}
-            minLength={10}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-            required
-          />
-          <input
-            type="date"
-            name="dob"
-            placeholder="Date of Birth"
-            value={formData.dob}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-            required
-          />
-          <select
-            name="gender"
-            value={formData.gender}
-            onChange={handleChange}
-            className="select select-bordered w-full"
-            required
-          >
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-          </select>
-          <select
-            name="caste"
-            value={formData.caste}
-            onChange={handleChange}
-            className="select select-bordered w-full"
-            required
-          >
-            <option value="">Select Caste</option>
-            <option value="General">General</option>
-            <option value="OBC">OBC</option>
-            <option value="SC">SC</option>
-            <option value="ST">ST</option>
-            <option value="Other">Other</option>
-          </select>
-          <input
-            type="text"
-            name="aadhar"
-            placeholder="Aadhar (12 characters)"
-            minLength={12}
-            maxLength={12}
-            value={formData.aadhar}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-            required
-          />
+          {/* Input Fields */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Full Name"
+              value={formData.fullName}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+            <input
+              type="text"
+              name="mobileNo"
+              placeholder="Mobile Number"
+              value={formData.mobileNo}
+              maxLength={10}
+              minLength={10}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+            <input
+              type="date"
+              name="dob"
+              placeholder="Date of Birth"
+              value={formData.dob}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+            <select
+              name="gender"
+              value={formData.gender}
+              onChange={handleChange}
+              className="select select-bordered w-full"
+              required
+            >
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            <select
+              name="caste"
+              value={formData.caste}
+              onChange={handleChange}
+              className="select select-bordered w-full"
+              required
+            >
+              <option value="">Select Caste</option>
+              <option value="General">General</option>
+              <option value="OBC">OBC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+              <option value="Other">Other</option>
+            </select>
+            <input
+              type="text"
+              name="aadhar"
+              placeholder="Aadhar (12 characters)"
+              minLength={12}
+              maxLength={12}
+              value={formData.aadhar}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+            <input
+              type="text"
+              name="familyName"
+              placeholder="Family Name"
+              value={formData.familyName}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
 
-          {/* Family Information */}
-          <input
-            type="text"
-            name="familyName"
-            placeholder="Family Name"
-            value={formData.familyName}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-            required
-          />
-          <input
-            readOnly
-            name="community"
-            value={formData.caste}
-            className="select select-bordered w-full"
-            required
-          ></input>
+          {/* Address Fields */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <input
+              type="text"
+              name="address.street"
+              placeholder="Street Address"
+              value={formData.address.street}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+            <input
+              type="text"
+              name="address.city"
+              placeholder="City"
+              value={formData.address.city}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+            <input
+              type="text"
+              name="address.state"
+              placeholder="State"
+              value={formData.address.state}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+            <input
+              type="text"
+              name="address.country"
+              placeholder="Country"
+              value={formData.address.country}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+            <input
+              type="text"
+              name="address.pincode"
+              placeholder="Pincode"
+              value={formData.address.pincode}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
 
-          {/* Address */}
-          <input
-            type="text"
-            name="address.street"
-            placeholder="Street Address"
-            value={formData.address.street}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-            required
-          />
-          <input
-            type="text"
-            name="address.city"
-            placeholder="City"
-            value={formData.address.city}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-            required
-          />
-          <input
-            type="text"
-            name="address.state"
-            placeholder="State"
-            value={formData.address.state}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-            required
-          />
-          <input
-            type="text"
-            name="address.country"
-            placeholder="Country"
-            value={formData.address.country}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-            required
-          />
-          <input
-            type="text"
-            name="address.pincode"
-            placeholder="Pincode"
-            value={formData.address.pincode}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-            required
-          />
-
-          {/* Password */}
+          {/* Password Field */}
           <div className="relative">
             <input
               type={`${showPassword ? "text" : "password"}`}
@@ -243,19 +239,23 @@ const RegisterUserDialog = () => {
               {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
             </span>
           </div>
+
+          {/* Buttons */}
           <div className="modal-action mx-auto w-full flex items-center justify-center">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary w-full md:w-auto">
               Register
             </button>
             <button
               type="button"
-              className="btn"
+              className="btn w-full md:w-auto"
               onClick={handleClose}
             >
               Close
             </button>
           </div>
         </form>
+
+        {/* Already Registered */}
         <div className="mt-4 w-full">
           <p className="text-center text-base-content">
             Already have an account?{" "}

@@ -43,13 +43,13 @@ const SignInModal = () => {
 
   return (
     <dialog id="signin" className="modal">
-      <div className="modal-box w-6/12 max-w-5xl text-base-content">
-        <h3 className="font-bold text-2xl my-4 text-center text-base-content">
+      <div className="modal-box w-full sm:w-10/12 md:w-8/12 lg:w-6/12 max-w-5xl text-base-content">
+        <h3 className="font-bold text-xl sm:text-2xl my-2 sm:my-4 text-center text-base-content">
           Sign In
         </h3>
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 px-5"
+          className="space-y-4 px-4 sm:px-5"
           method="dialog"
         >
           <input
@@ -79,13 +79,13 @@ const SignInModal = () => {
             </span>
           </div>
 
-          <div className="modal-action">
-            <button type="submit" className="btn btn-primary">
+          <div className="modal-action flex flex-col sm:flex-row sm:justify-end gap-2">
+            <button type="submit" className="btn btn-primary w-full sm:w-auto">
               Sign In
             </button>
             <button
               type="button"
-              className="btn"
+              className="btn w-full sm:w-auto"
               onClick={() =>
                 (
                   document.getElementById("signin") as HTMLDialogElement
@@ -97,22 +97,22 @@ const SignInModal = () => {
           </div>
         </form>
       </div>
-      <div className="mt-4 w-full">
-        <p className="text-center text-base-content">
+      {/* <div className="mt-4 px-4 text-center">
+        <p className="text-sm sm:text-base text-base-content">
           Already have an account?{" "}
           <button
             className="btn btn-link"
             onClick={() => {
-              (document.getElementById("signup") as HTMLDialogElement).close();
+              (document.getElementById("signup") as HTMLDialogElement)?.close();
               (
                 document.getElementById("signin") as HTMLDialogElement
-              ).showModal();
+              )?.showModal();
             }}
           >
             Click Here!
           </button>
         </p>
-      </div>
+      </div> */}
     </dialog>
   );
 };
