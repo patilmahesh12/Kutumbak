@@ -60,16 +60,16 @@ const UpdateFamilyMember = () => {
   }, [selectedMember]);
 
   return (
-    <div className="max-w-3xl mx-auto p-10 bg-base-200 rounded-lg shadow-lg">
+    <div className="max-w-5xl mx-auto p-8 bg-base-200 rounded-lg shadow-lg">
       <h2 className="text-3xl font-semibold text-center mb-6">
         Update Family Member
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         {family?.members.map((member: User) => (
           <div
             key={member._id}
-            className="card bg-accent text-accent-content shadow-lg cursor-pointer"
+            className="card bg-accent text-accent-content shadow-lg cursor-pointer transition-transform transform hover:scale-105"
             onClick={() => setSelectedMember(member)}
           >
             <div className="card-body flex flex-col items-center">
@@ -96,7 +96,7 @@ const UpdateFamilyMember = () => {
         ))}
       </div>
       {selectedMember && (
-        <div>
+        <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-xl">
           <h3 className="text-2xl font-semibold text-center mb-4">
             Update Details for {selectedMember.fullName}
           </h3>
@@ -160,54 +160,6 @@ const UpdateFamilyMember = () => {
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
               </select>
-            </div>
-
-            <div>
-              <label htmlFor="caste" className="block text-lg font-medium">
-                Caste
-              </label>
-              <input
-                type="text"
-                id="caste"
-                name="caste"
-                className="input input-bordered w-full"
-                placeholder="Enter caste"
-                value={caste}
-                onChange={(e) => setCaste(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="aadhar" className="block text-lg font-medium">
-                Aadhar Number
-              </label>
-              <input
-                type="text"
-                id="aadhar"
-                name="aadhar"
-                className="input input-bordered w-full"
-                placeholder="Enter Aadhar number"
-                value={aadhar}
-                onChange={(e) => setAadhar(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="profileImage"
-                className="block text-lg font-medium"
-              >
-                Profile Image URL
-              </label>
-              <input
-                type="text"
-                id="profileImage"
-                name="profileImage"
-                className="input input-bordered w-full"
-                placeholder="Enter image URL"
-                value={profileImage}
-                onChange={(e) => setProfileImage(e.target.value)}
-              />
             </div>
 
             <div>

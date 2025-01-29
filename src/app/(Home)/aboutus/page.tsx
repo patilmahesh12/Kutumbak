@@ -20,11 +20,11 @@ const About = () => {
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-semibold text-gray-800 mb-6 flex items-center justify-center">
+          <h2 className="text-3xl font-semibold text-[#5C7285] mb-6 flex items-center justify-center">
             <Heart className="text-red-500 mr-4" size={32} />
             Our Mission
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-lg text-[#C4D9FF] leading-relaxed max-w-3xl mx-auto">
             Our mission is to create a platform that fosters connection and
             community. We empower families to connect, manage details, and
             interact securely and efficiently, creating an engaging experience
@@ -40,15 +40,15 @@ const About = () => {
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-semibold text-gray-800 mb-6 flex items-center justify-center">
+          <h2 className="text-3xl font-semibold text-[#5C7285] mb-6 flex items-center justify-center">
             <Users className="text-green-400 mr-4" size={32} />
             What We Offer
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-4">
+          <p className="text-lg text-[#155E95] leading-relaxed max-w-3xl mx-auto mb-4">
             Our platform offers intuitive tools for managing family profiles,
             connecting with communities, and ensuring secure interactions.
           </p>
-          <ul className="list-disc list-inside space-y-2 text-gray-700 max-w-3xl mx-auto">
+          <ul className="list-disc list-inside space-y-2 text-[#C4D9FF] max-w-3xl mx-auto">
             <li>Streamlined profile and family management features.</li>
             <li>Advanced search to find connections within the community.</li>
             <li>Secure, personalized, and user-friendly interface.</li>
@@ -62,11 +62,11 @@ const About = () => {
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-semibold text-gray-800 mb-6 flex justify-center items-center">
+          <h2 className="text-3xl font-semibold text-[#5C7285] mb-6 flex justify-center items-center">
             <Shield className="text-yellow-300 mr-4" size={32} />
             Our Values
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-8">
+          <p className="text-lg text-[#C4D9FF] leading-relaxed max-w-3xl mx-auto mb-8">
             We prioritize privacy, transparency, and community. Our platform is
             designed with robust security measures to ensure user data is
             protected while fostering meaningful connections.

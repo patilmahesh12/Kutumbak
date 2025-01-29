@@ -68,7 +68,7 @@ const RegisterUserDialog = () => {
 
   return (
     <dialog id="signup" className="modal">
-      <div className="modal-box w-11/12 sm:w-8/12 lg:w-6/12 max-w-5xl text-base-content relative">
+      <div className="modal-box w-full sm:w-11/12 md:w-8/12 lg:w-6/12 max-w-5xl text-base-content relative">
         <button
           className="absolute top-2 right-2 text-lg font-bold text-gray-500 hover:text-gray-700"
           onClick={handleClose}
@@ -81,18 +81,17 @@ const RegisterUserDialog = () => {
         </h3>
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 px-4 sm:px-6 lg:px-8"
+          className="space-y-6 px-4 sm:px-6 lg:px-8"
           method="dialog"
         >
-          {/* Input Fields */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <input
               type="text"
               name="fullName"
               placeholder="Full Name"
               value={formData.fullName}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg"
               required
             />
             <input
@@ -101,7 +100,7 @@ const RegisterUserDialog = () => {
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg"
               required
             />
             <input
@@ -112,7 +111,7 @@ const RegisterUserDialog = () => {
               maxLength={10}
               minLength={10}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg"
               required
             />
             <input
@@ -121,14 +120,14 @@ const RegisterUserDialog = () => {
               placeholder="Date of Birth"
               value={formData.dob}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg"
               required
             />
             <select
               name="gender"
               value={formData.gender}
               onChange={handleChange}
-              className="select select-bordered w-full"
+              className="select select-bordered w-full rounded-lg"
               required
             >
               <option value="">Select Gender</option>
@@ -140,7 +139,7 @@ const RegisterUserDialog = () => {
               name="caste"
               value={formData.caste}
               onChange={handleChange}
-              className="select select-bordered w-full"
+              className="select select-bordered w-full rounded-lg"
               required
             >
               <option value="">Select Caste</option>
@@ -158,7 +157,7 @@ const RegisterUserDialog = () => {
               maxLength={12}
               value={formData.aadhar}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg"
               required
             />
             <input
@@ -167,20 +166,18 @@ const RegisterUserDialog = () => {
               placeholder="Family Name"
               value={formData.familyName}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg"
               required
             />
           </div>
-
-          {/* Address Fields */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
             <input
               type="text"
               name="address.street"
               placeholder="Street Address"
               value={formData.address.street}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg"
               required
             />
             <input
@@ -189,7 +186,7 @@ const RegisterUserDialog = () => {
               placeholder="City"
               value={formData.address.city}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg"
               required
             />
             <input
@@ -198,7 +195,7 @@ const RegisterUserDialog = () => {
               placeholder="State"
               value={formData.address.state}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg"
               required
             />
             <input
@@ -207,7 +204,7 @@ const RegisterUserDialog = () => {
               placeholder="Country"
               value={formData.address.country}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg"
               required
             />
             <input
@@ -216,12 +213,10 @@ const RegisterUserDialog = () => {
               placeholder="Pincode"
               value={formData.address.pincode}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg"
               required
             />
           </div>
-
-          {/* Password Field */}
           <div className="relative">
             <input
               type={`${showPassword ? "text" : "password"}`}
@@ -229,7 +224,7 @@ const RegisterUserDialog = () => {
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg"
               required
             />
             <span
@@ -239,25 +234,24 @@ const RegisterUserDialog = () => {
               {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
             </span>
           </div>
-
-          {/* Buttons */}
-          <div className="modal-action mx-auto w-full flex items-center justify-center">
-            <button type="submit" className="btn btn-primary w-full md:w-auto">
+          <div className="modal-action mx-auto w-full flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              type="submit"
+              className="btn btn-primary w-full sm:w-auto rounded-lg"
+            >
               Register
             </button>
             <button
               type="button"
-              className="btn w-full md:w-auto"
+              className="btn btn-secondary w-full sm:w-auto rounded-lg"
               onClick={handleClose}
             >
               Close
             </button>
           </div>
         </form>
-
-        {/* Already Registered */}
-        <div className="mt-4 w-full">
-          <p className="text-center text-base-content">
+        <div className="mt-4 w-full text-center">
+          <p className="text-base-content">
             Already have an account?{" "}
             <button
               className="btn btn-link"

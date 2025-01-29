@@ -2,40 +2,36 @@
 
 import AddFamilyMemberForm from "@/components/FamilyComponent/AddFamilyMemberForm";
 import UpdateFamilyMember from "@/components/FamilyComponent/UpdateFamilyMember";
+import { useState } from "react";
 
 const FamilyMembersComponent = () => {
+  const [activeTab, setActiveTab] = useState("add");
+
   return (
-    <>
-      <div role="tablist" className="tabs tabs-lifted m-4 sm:m-10 text-base">
-        <input
-          type="radio"
-          name="family_member_tabs"
-          role="tab"
-          className="tab text-lg sm:text-xl h-12 mx-4 sm:mx-10 [--tab-bg:var(--p)] [--tab-border-color:var(--b1)]"
-          aria-label="Add Family Member"
-          defaultChecked
-        />
-        <div
-          role="tabpanel"
-          className="tab-content bg-[--b2] border-[--b1] rounded-box p-4 sm:p-6 min-h-96"
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-8">
+      <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-6 mb-6">
+        <button
+          className={`w-full sm:w-auto px-4 py-2 text-lg font-semibold rounded-lg transition-all ${
+            activeTab === "add" ? "bg-primary text-white shadow-lg" : "bg-gray-200 text-gray-800"
+          }`}
+          onClick={() => setActiveTab("add")}
         >
-          <AddFamilyMemberForm />
-        </div>
-        <input
-          type="radio"
-          name="family_member_tabs"
-          role="tab"
-          className="tab text-lg sm:text-xl h-12 mx-4 sm:mx-10 [--tab-bg:var(--p)] [--tab-border-color:var(--b1)]"
-          aria-label="Update Family Member"
-        />
-        <div
-          role="tabpanel"
-          className="tab-content bg-[--b2] border-[--b1] rounded-box p-4 sm:p-6 min-h-96"
+          Add Family Member
+        </button>
+        <button
+          className={`w-full sm:w-auto px-4 py-2 text-lg font-semibold rounded-lg transition-all ${
+            activeTab === "update" ? "bg-primary text-white shadow-lg" : "bg-gray-200 text-gray-800"
+          }`}
+          onClick={() => setActiveTab("update")}
         >
-          <UpdateFamilyMember />
-        </div>
+          Update Family Member
+        </button>
       </div>
-    </>
+      
+      <div className="bg-white shadow-md rounded-lg p-4 sm:p-6">
+        {activeTab === "add" ? <AddFamilyMemberForm /> : <UpdateFamilyMember />}
+      </div>
+    </div>
   );
 };
 
