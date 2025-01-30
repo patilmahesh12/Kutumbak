@@ -66,6 +66,11 @@ const RegisterUserDialog = () => {
     (document.getElementById("signup") as HTMLDialogElement).close();
   };
 
+  const handleClickHere = () => {
+    handleClose();
+    (document.getElementById("signin") as HTMLDialogElement).showModal();
+  };
+
   return (
     <dialog id="signup" className="modal">
       <div className="modal-box w-full sm:w-11/12 md:w-8/12 lg:w-6/12 max-w-5xl text-base-content relative">
@@ -241,25 +246,21 @@ const RegisterUserDialog = () => {
             >
               Register
             </button>
-            <button
+            {/* <button
               type="button"
               className="btn btn-secondary w-full sm:w-auto rounded-lg"
               onClick={handleClose}
             >
               Close
-            </button>
+            </button> */}
           </div>
         </form>
         <div className="mt-4 w-full text-center">
-          <p className="text-base-content">
+          <p className="text-base-content text-center text-lg">
             Already have an account?{" "}
             <button
-              className="btn btn-link"
-              onClick={() => {
-                (
-                  document.getElementById("signup") as HTMLDialogElement
-                ).showModal();
-              }}
+              className="btn btn-link text-lg sm:text-xl md:text-2xl w-full sm:w-auto"
+              onClick={handleClickHere}
             >
               Click Here!
             </button>
