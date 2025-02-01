@@ -5,7 +5,7 @@ import { Globe, Share, Users, TrendingUp } from "lucide-react";
 import SignUp from "@/dialogs/SignUp";
 
 const Hero = () => {
-  const [showRegister, setShowRegister] = useState(false);
+  // const [showRegister, setShowRegister] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

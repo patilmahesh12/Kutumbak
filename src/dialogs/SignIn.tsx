@@ -36,14 +36,24 @@ const SignInModal = () => {
           return error.response.data;
         },
       });
-    } catch (error) {
+    } catch (_error) {
       toast.error("Failed to sign in.");
     }
   };
 
+  const handleClose = () => {
+    (document.getElementById("signin") as HTMLDialogElement)?.close();
+  };
+
   return (
     <dialog id="signin" className="modal">
-      <div className="modal-box w-full sm:w-10/12 md:w-8/12 lg:w-6/12 max-w-5xl text-base-content">
+      <div className="modal-box w-full sm:w-10/12 md:w-8/12 lg:w-6/12 max-w-5xl text-base-content relative">
+        <button
+          className="absolute top-2 right-4 text-xl font-bold text-gray-500 hover:text-gray-700 transform scale-150"
+          onClick={handleClose}
+        >
+          ×
+        </button>
         <h3 className="font-bold text-xl sm:text-2xl my-2 sm:my-4 text-center text-base-content">
           Sign In
         </h3>
@@ -63,7 +73,7 @@ const SignInModal = () => {
           />
           <div className="relative">
             <input
-              type={`${showPassword ? "text" : "password"}`}
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Password"
               value={formData.password}
@@ -83,36 +93,9 @@ const SignInModal = () => {
             <button type="submit" className="btn btn-primary w-full sm:w-auto">
               Sign In
             </button>
-            <button
-              type="button"
-              className="btn w-full sm:w-auto"
-              onClick={() =>
-                (
-                  document.getElementById("signin") as HTMLDialogElement
-                )?.close()
-              }
-            >
-              Cancel
-            </button>
           </div>
         </form>
       </div>
-      {/* <div className="mt-4 px-4 text-center">
-        <p className="text-sm sm:text-base text-base-content">
-          Already have an account?{" "}
-          <button
-            className="btn btn-link"
-            onClick={() => {
-              (document.getElementById("signup") as HTMLDialogElement)?.close();
-              (
-                document.getElementById("signin") as HTMLDialogElement
-              )?.showModal();
-            }}
-          >
-            Click Here!
-          </button>
-        </p>
-      </div> */}
     </dialog>
   );
 };

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Heart, Users, Shield } from "lucide-react";
+import {Heart, Users, Shield } from "lucide-react";
 import { motion } from "framer-motion";
 
 const About = () => {
