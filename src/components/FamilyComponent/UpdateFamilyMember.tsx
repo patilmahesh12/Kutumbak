@@ -4,6 +4,7 @@ import { User } from "@/types/User";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Image from 'next/image';
 
 const UpdateFamilyMember = () => {
   const { family } = useUser();
@@ -74,11 +75,13 @@ const UpdateFamilyMember = () => {
           >
             <div className="card-body flex flex-col items-center">
               <div className="w-24 h-24 mb-4 rounded-full overflow-hidden">
-                <img
-                  src={member.profileImage ? member.profileImage : "/default-profile.png"}
-                  alt={member.fullName}
-                  className="w-full h-full object-cover"
-                />
+              <Image
+  src={member.profileImage ? member.profileImage : "/default-profile.png"}
+  alt={member.fullName}
+  width={100}  // specify the width (example value)
+  height={100} // specify the height (example value)
+  className="object-cover"  // className can be retained for styling
+/>
               </div>
               <h3 className="font-semibold text-xl text-center mb-2">
                 {member.fullName}

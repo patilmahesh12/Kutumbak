@@ -6,6 +6,7 @@ import SignUp from "@/dialogs/SignUp";
 import { useUser } from "@/context/UserContext";
 import axios from "axios";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const Navbar = () => {
   const { family } = useUser();
@@ -25,7 +26,12 @@ const Navbar = () => {
           href="/"
           className="cursor-pointer flex flex-row gap-2 items-center"
         >
-          <img src="/community.svg" width="40px" height="40px" alt="Logo" />
+          <Image
+            src="/community.svg"
+            alt="Logo"
+            width={40} // width in pixels
+            height={40} // height in pixels
+          />
           <span className="text-2xl md:text-4xl font-sans">Kutumbak</span>
         </Link>
         <button
@@ -81,9 +87,11 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
               <button tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-8 md:w-10 rounded-full">
-                  <img
+                  <Image
                     alt="User Avatar"
                     src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    width={100} // specify width in pixels
+                    height={100} // specify height in pixels
                   />
                 </div>
               </button>
