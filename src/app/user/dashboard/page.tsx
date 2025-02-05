@@ -42,7 +42,7 @@ const UserDashboard = () => {
         <p className="mt-4 text-xl sm:text-2xl">Community: {family?.community}</p>
         <p className="mt-4 text-lg text-base-content sm:text-xl">
           Our platform connects families within communities to foster stronger
-          relationships, share resources, and provide help when needed. It's
+          relationships, share resources, and provide help when needed. It&#39;s
           designed to make family management seamless and empower communities
           with easy access to critical information.
         </p>
@@ -118,4 +118,4 @@ const UserDashboard = () => {
   );
 };
 
-export default UserDashboard;
+export default UserDashboard; 

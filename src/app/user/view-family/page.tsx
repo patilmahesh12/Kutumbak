@@ -4,6 +4,7 @@ import { useState } from "react";
 import { jsPDF } from "jspdf";
 import { useUser } from "@/context/UserContext";
 import { User } from "@/types/User";
+import Image from "next/image";
 
 const ViewFamily = () => {
   const { family } = useUser();
@@ -48,10 +49,13 @@ const ViewFamily = () => {
       doc.text(`Caste: ${member.caste}`, 20, yPosition);
       yPosition += 10;
 
+      // Add profile image if available
       if (member.profileImage) {
-        const img = new Image();
+        const img = new window.Image();
         img.src = member.profileImage;
-        doc.addImage(img, "JPEG", 150, yPosition - 30, 40, 40);
+        img.onload = () => {
+          doc.addImage(img, "JPEG", 150, yPosition - 30, 40, 40);
+        };
       }
 
       yPosition += 20;
@@ -75,10 +79,13 @@ const ViewFamily = () => {
     );
     doc.text(`Caste: ${member.caste}`, 20, 80);
 
+    // Add profile image if available
     if (member.profileImage) {
-      const img = new Image();
+      const img = new window.Image();
       img.src = member.profileImage;
-      doc.addImage(img, "JPEG", 150, 30, 40, 40);
+      img.onload = () => {
+        doc.addImage(img, "JPEG", 150, 30, 40, 40);
+      };
     }
 
     doc.save(`${member.fullName.replace(/\s+/g, "_")}_Details.pdf`);
@@ -105,10 +112,12 @@ const ViewFamily = () => {
             className="card bg-accent text-accent-content shadow-lg p-4 rounded-lg"
           >
             <div className="flex flex-col items-center">
-              <img
+              <Image
                 src={member.profileImage || "/default-profile.png"}
                 alt={member.fullName}
-                className="w-20 h-20 rounded-full mb-2"
+                width={80}
+                height={80}
+                className="rounded-full mb-2"
               />
               <h3 className="text-lg font-semibold text-center">
                 {member.fullName}

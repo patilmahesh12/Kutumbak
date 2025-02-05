@@ -5,6 +5,7 @@ import { useUser } from "@/context/UserContext";
 import { Family } from "@/types/family";
 import { User } from "@/types/User";
 import axios from "axios";
+import Image from "next/image";
 
 const CommunityFamilies = () => {
   const { family } = useUser();
@@ -124,9 +125,11 @@ const CommunityFamilies = () => {
                 >
                   <div className="card-body">
                     <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4">
-                      <img
+                      <Image
                         src={member.profileImage || "/default-profile.png"}
                         alt={member.fullName}
+                        width={80}
+                        height={80}
                         className="w-full h-full object-cover"
                       />
                     </div>

@@ -17,8 +17,8 @@ const dbConfig = async () => {
   } catch (error) {
     console.log("Error: ", error);
   }
-  Family;
-  User;
+  void Family;
+  void User;
 };
 
 export default dbConfig;
