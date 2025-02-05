@@ -109,7 +109,7 @@ const Contact = () => {
         </div>
         <div className="p-10 bg-base-300 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-4">
-            Let's talk about the Future
+            Let&apos;s talk about the Future
           </h2>
           <div className="flex items-center gap-3 sm:gap-4 md:gap-5">
             <Mail size={22} />

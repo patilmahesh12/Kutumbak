@@ -9,7 +9,6 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Family } from "@/types/family";
 import { useRouter } from "next/navigation";
-// import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,7 +41,7 @@ const MainContent = ({ children }: { children: React.ReactNode }) => {
       }
     };
     getUserFromToken();
-  }, [router]);
+  }, [router, setUser]);
 
   return (
     <html lang="en">

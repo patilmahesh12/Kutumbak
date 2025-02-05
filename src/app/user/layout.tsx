@@ -1,4 +1,5 @@
 "use client";
+
 import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import ToastContainer from "@/components/ToastContainer";
@@ -41,7 +42,7 @@ const MainContent = ({ children }: { children: React.ReactNode }) => {
       }
     };
     getUserFromToken();
-  }, [router]);
+  }, [router, setUser]);
 
   return (
     <html lang="en">
@@ -50,7 +51,7 @@ const MainContent = ({ children }: { children: React.ReactNode }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Kutumbak | Connect With Your Community</title>
       </head>
-      <body className={`${inter.className}`}>
+      <body className={inter.className}>
         <Navbar />
         <SideNav>
           <ToastContainer />
