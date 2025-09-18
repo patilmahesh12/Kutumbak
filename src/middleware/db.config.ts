@@ -2,7 +2,6 @@ import Family from "@/models/Family";
 import User from "@/models/User";
 import mongoose from "mongoose";
 
-// Database Connection
 
 const dbConfig = async () => {
   try {

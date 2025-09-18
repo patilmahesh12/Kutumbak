@@ -246,13 +246,6 @@ const RegisterUserDialog = () => {
             >
               Register
             </button>
-            {/* <button
-              type="button"
-              className="btn btn-secondary w-full sm:w-auto rounded-lg"
-              onClick={handleClose}
-            >
-              Close
-            </button> */}
           </div>
         </form>
         <div className="mt-4 w-full text-center">
