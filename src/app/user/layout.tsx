@@ -42,7 +42,7 @@ const MainContent = ({ children }: { children: React.ReactNode }) => {
       }
     };
     getUserFromToken();
-  }, [router, setUser]);
+  }, []);
 
   return (
     <html lang="en">
